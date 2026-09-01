@@ -1,0 +1,24 @@
+LIBS = -Lfoo/lib -lfoo -Lbar/lib -lbar
+INCLUDES = -Ifoo/include -Ibar/include
+fool = foo/lib/libfoo.a
+barl = bar/lib/libbar.a
+fooo = foo/obj/foo.o
+baro = bar/obj/bar.o
+
+driver : driver.c $(fool) $(barl)
+	gcc driver.c $(INCLUDES) $(LIBS) -o driver
+
+$(fool) : $(fooo)
+	ar rcs $(fool) $(fooo)
+
+$(barl) : $(baro)
+	ar rcs $(barl) $(baro)
+
+$(fooo) : foo/src/foo.c
+	gcc -c $(INCLUDES) foo/src/foo.c -o $(fooo)
+
+$(baro) : bar/src/bar.c
+	gcc -c $(INCLUDES) bar/src/bar.c -o $(baro)
+
+clean:
+	rm -f libdriver $(fooo) $(baro) $(fool) $(barl)

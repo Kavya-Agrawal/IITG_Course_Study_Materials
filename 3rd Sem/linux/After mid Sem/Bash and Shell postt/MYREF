@@ -1,0 +1,370 @@
+%A	Full weekday name	   Monday
+%a	Abbreviated weekday name	   Mon
+%B	Full month name	   October
+%b	Abbreviated month name	   Oct
+%d	Day of the month (01-31)	   21
+%m	Month number (01-12)	         10
+%Y	Full year	                  2024
+%y	Last two digits of the year	24
+%H	Hour (00-23)	                  15
+%I	Hour (01-12, 12-hour format)	03
+%M	Minute (00-59)	               32
+%S	Second (00-59)	            45
+%p	AM or PM	                  PM
+%Z	Timezone	                     IST
+
+DATE COMMAND
+      Find the Day of the Week for a Specific Date:
+      date -d "2024-12-25" +%A
+
+      To display the current UTC (Coordinated Universal Time), use the -u option.
+      date -u
+
+      Set the Date and Time Manually:
+      sudo date --set "2024-12-25 12:00:00"
+
+      Summary of Important Options
+      Option	Description
+      -u	Display time in UTC
+      -d "STRING"	Display date/time based on a given string
+      --set "STRING"	Set the system date/time (needs sudo)
+      +FORMAT	Customize the output with format specifiers
+
+Summary of Positional Arguments
+      Symbol	Description
+      $0	The name of the script
+      $1, $2, ...	The first, second, etc., arguments
+      $@	All arguments as separate strings
+      $#	Total number of arguments
+      shift	Moves positional arguments to the left
+
+
+1️⃣ Arithmetic Operators
+   These operators are used to perform basic mathematical operations.
+
+      Operator	Description	Example
+      +	Addition	expr 5 + 3 (results in 8)
+      -	Subtraction	expr 5 - 3 (results in 2)
+      *	Multiplication	expr 5 \* 3 (results in 15)
+      /	Division	expr 5 / 2 (results in 2)
+      %	Modulus (remainder)	expr 5 % 2 (results in 1)
+
+2️⃣ Relational Operators
+   Relational operators are used to compare two values.
+
+      Operator	Description	Example
+      -eq	Equal to	[[ $a -eq $b ]]
+      -ne	Not equal to	[[ $a -ne $b ]]
+      -gt	Greater than	[[ $a -gt $b ]]
+      -lt	Less than	[[ $a -lt $b ]]
+      -ge	Greater than or equal to	[[ $a -ge $b ]]
+      -le	Less than or equal to	[[ $a -le $b ]]
+
+3️⃣ Logical Operators
+   Logical operators are used to combine multiple conditions.
+
+      Operator	Description	Example
+      &&	Logical AND	[[ condition1 && condition2 ]]
+      `		`
+      !	Logical NOT (negation)	[[ ! condition ]]
+
+4️⃣ Assignment Operators
+   Assignment operators are used to assign values to variables.
+
+      Operator	Description	Example
+      =	Assign value	x=5
+      +=	Add and assign	x+=5 (equivalent to x=x+5)
+      -=	Subtract and assign	x-=5 (equivalent to x=x-5)
+      *=	Multiply and assign	x*=5 (equivalent to x=x*5)
+      /=	Divide and assign	x/=5 (equivalent to x=x/5)
+      %=	Modulus and assign	x%=5 (equivalent to x=x%5)
+
+
+If-Else Statements in Shell Scripting
+   Basic Structure
+      if [ condition ]; then
+         # Code to execute if the condition is true
+      elif [ another_condition ]; then
+         # Code to execute if the second condition is true
+      else
+         # Code to execute if none of the conditions are true
+      fi
+                        OR
+      if [[ condition ]]; then
+         # Code to execute if the condition is true
+      elif [[ another_condition ]]; then
+         # Code to execute if the second condition is true
+      else
+         # Code to execute if none of the conditions are true
+      fi
+
+7️⃣ Switch Statements in Shell Scripting
+      case variable in
+         pattern1)
+            # Code to execute if variable matches pattern1
+            ;;
+         pattern2)
+            # Code to execute if variable matches pattern2
+            ;;
+         *)
+            # Code to execute if variable doesn't match any pattern
+            ;;
+      esac  
+
+8️⃣ Arrays in Shell Scripting
+   Types of Arrays
+   Indexed Arrays: These are arrays with numerical indices.
+   Associative Arrays: These arrays use string keys as indices (available in Bash version 4.0 and above).
+
+   1️⃣ Indexed Arrays
+      Declaring Indexed Arrays
+         array_name=(value1 value2 value3)
+
+         ${array_name[index]}
+
+   2️⃣ Associative Arrays
+      Declaring Associative Arrays
+
+         declare -A associative_array
+         associative_array[key1]="value1"
+         associative_array[key2]="value2"
+
+         ${associative_array[key]}
+
+
+9️⃣ Loops in Shell Scripting
+Types of Loops
+For Loop
+While Loop
+Until Loop
+
+   1️⃣ For Loop
+
+      for variable in list; do
+         # Commands to execute
+      done
+
+      for ((i=1; i<=5; i++)); do
+         echo "Number: $i"
+      done
+
+   2️⃣ While Loop
+
+      while [ condition ]; do
+         # Commands to execute
+      done
+
+   3️⃣ Until Loop
+      The until loop is the opposite of the while loop. It continues to execute as long as the specified condition is false.
+
+      until [ condition ]; do
+         # Commands to execute
+      done
+
+🔟 Functions in Shell Scripting
+      function_name() {
+         # Commands to execute
+      }
+   You can also define a function using the function keyword:
+      function function_name {
+         # Commands to execute
+      }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+1️⃣ Debugging Scripts
+   1.1 Using set Command
+      set -x: Enables a mode of the shell where all executed commands are printed to the terminal. This is useful for tracing the flow of execution.
+      set -e: Causes the script to exit immediately if any command returns a non-zero status (indicating an error). #exexution_            failure
+      set -u: Treats unset variables as an error and exits immediately. #unset failures
+
+2️⃣ Error Handling in Shell Scripting
+   2.1 Checking Exit Status
+      $?
+
+
+Memory updated
+Great! Let’s dive into regular expressions, sed, awk, and file operations in shell scripting. We’ll start with regular expressions.
+
+3️⃣ Regular Expressions in Shell Scripting
+      3.1 What are Regular Expressions?
+      Regular expressions (regex) are sequences of characters that define a search pattern. They are often used for string matching and manipulation.
+
+      Basic Regex Syntax
+      .: Matches any single character.
+      *: Matches zero or more occurrences of the preceding character.
+      +: Matches one or more occurrences of the preceding character.
+      ?: Matches zero or one occurrence of the preceding character.
+      ^: Matches the start of a line.
+      $: Matches the end of a line.
+      [abc]: Matches any one of the characters inside the brackets.
+      [^abc]: Matches any character not inside the brackets.
+      (abc|def): Matches either abc or def.
+
+4️⃣ sed (Stream Editor)
+      sed is a powerful text processing tool used for parsing and transforming text in files or streams.
+
+      Basic sed Syntax
+      Substitution: s/pattern/replacement/
+      Delete lines: d
+      Print lines: p
+      Range: You can specify line ranges to operate on.
+
+5️⃣ awk
+      awk is a powerful programming language designed for text processing. It excels at handling structured data.
+      awk 'pattern { action }' file
+
+6️⃣ File Operations
+      6.1 Reading from a File
+      You can read a file line by line using a while loop with read.
+
+      while IFS= read -r line; do
+         # Process line
+      done < filename
+
+CALLLLLLLLL
+   1️⃣ Basic Syntax1️
+      cal [options] [month] [year]
+
+   cut [options] [file]
+
+   $? helps check the success or failure of the last command and take action accordingly in the script.
+
+   grep -i -v "$query" "$PHONEBOOK" > temp:
+   -i: Case-insensitive search (so it will find matches regardless of case).
+   -v: Inverts the match, meaning it selects lines that do not match the pattern
+
+   rev doesn't accept a string as an argument directly. Instead, it reads input from standard input (stdin) or from a file.
+
+   grep -E '^(.)(.).?\2\1$' "$DICTIONARY"
+
+
+Parameter Expansion
+   Parameter expansion allows you to manipulate the values of shell variables. Here are some of the most commonly used operators:
+   
+   Basic Expansion:
+   
+      Syntax: ${parameter}
+
+   Default Values:
+      Syntax :                                                                       ${parameter:-default}
+      Description: If parameter is unset or null, it expands to default.
+      unset var
+      echo "${var:-default_value}"  # Output: default_value
+
+   Default Assignment:
+   
+      Syntax :                                                                       ${parameter:=default}
+      Description: If parameter is unset or null, it assigns default to parameter and then expands to the value of parameter.
+      echo "${var:=default_value}"  # var is set to default_value and echoed.
+      echo "$var"                   # Output: default_value
+   Remove Prefix:
+   
+      Syntax :                                                                       ${parameter#pattern}
+      Description: Removes the shortest match of pattern from the beginning of parameter.
+      filename="example.txt"
+      echo "${filename#*.}"  # Output: txt
+   Remove Suffix:
+   
+      Syntax :                                                                       ${parameter%pattern}
+      Description: Removes the shortest match of pattern from the end of parameter.
+      filename="example.txt"
+      echo "${filename%.txt}"  # Output: example
+   Remove Longest Prefix:
+   
+      Syntax :                                                                       ${parameter##pattern}
+      Description: Removes the longest match of pattern from the beginning.
+      path="/usr/local/bin/example"
+      echo "${path##*/}"  # Output: example
+   Remove Longest Suffix:
+   
+      Syntax :                                                                       ${parameter%%pattern}
+      Description: Removes the longest match of pattern from the end.
+      path="/usr/local/bin/example.txt"
+      echo "${path%%.*}"  # Output: /usr/local/bin/example
+   String Length:
+   
+      Syntax :                                                                       ${#parameter}
+      Description: Returns the length of parameter.
+      str="Hello"
+      echo "${#str}"  # Output: 5
+   Substring Extraction:
+   
+      Syntax :                                                                       ${parameter:offset:length}
+      Description: Extracts a substring starting at offset with a specified length.
+      str="Hello, World!"
+      echo "${str:7:5}"  # Output: World
+
+String Manipulation
+
+   String manipulation in shell scripting allows you to modify and handle strings easily. Here are some common operations:
+   
+   Concatenation:
+   
+      You can simply place strings next to each other.
+      str1="Hello"
+      str2="World"
+      result="${str1}, ${str2}!"  # Output: Hello, World!
+      echo "$result"
+   Uppercase and Lowercase Conversion:
+   
+      Using ^^ for uppercase and ,, for lowercase (Bash 4+).
+      str="hello"
+      echo "${str^^}"  # Output: HELLO
+      echo "${str,,}"  # Output: hello
+   Replacing Substrings:
+   
+      Syntax :                                                                       ${parameter//pattern/replacement}
+      Description: Replaces all occurrences of pattern with replacement.
+      str="Hello, World!"
+      echo "${str//World/Bash}"  # Output: Hello, Bash!
+   Splitting a String:
+   
+      You can use IFS (Internal Field Separator) to split strings.
+      str="one:two:three"
+      IFS=':' read -ra parts <<< "$str"
+      echo "${parts[1]}"  # Output: two
+   Trimming Whitespace:
+   
+      To trim whitespace from the beginning and end.
+      str="   Hello, World!   "
+      trimmed="${str#"${str%%[![:space:]]*}"}"  # Leading
+      trimmed="${trimmed%"${trimmed##*[![:space:]]}"}"  # Trailing
+      echo "$trimmed"  # Output: Hello, World!
+
+
+CHANGING FILE NAMESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+      # Get the base name without extension
+      base_name=$(basename "$original_file" .txt)
+      
+      # Create a backup filename
+      backup_file="${base_name}.bak"
+      
+      # Copy the original file to the backup
+      cp "$original_file" "$backup_file"
+      
+      echo "Backup created: $backup_file"
+
+
+Using AWK TO SOLVE QUIZ 1 FIRST QUESTION  
+
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 [-l | -w | -c] file"
+    exit 1
+fi
+
+file="$2"
+if [ "$1" == "-l" ]; then
+    awk 'END {print NR, FILENAME}' "$file"
+elif [ "$1" == "-w" ]; then
+    awk '{word_count += NF} END {print word_count, FILENAME}' "$file"
+elif [ "$1" == "-c" ]; then
+    awk '{char_count += length($0) + 1} END {print char_count, FILENAME}' "$file"
+else
+    lines=$(awk 'END {print NR}' "$1")
+    words=$(awk '{word_count += NF} END {print word_count}' "$1")
+    chars=$(awk '{char_count += length($0) + 1} END {print char_count}' "$1")
+    echo "$lines $words $chars $1"
+fi

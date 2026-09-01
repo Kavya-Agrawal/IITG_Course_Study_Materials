@@ -1,0 +1,12 @@
+INC =-I./includes/
+SOURCE = $(wildcard *.c)
+OBJECT = $(SOURCE:.c=.o)
+
+listprime : $(OBJECT)
+	gcc $(OBJECT) -o listprime 
+
+%.o : %.c
+	gcc -c $(INC) $< -o $@
+
+clean:
+	rm listprime *.o

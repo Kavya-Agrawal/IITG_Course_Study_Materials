@@ -1,0 +1,22 @@
+CFLAGS = -Wall -Wextra -O2
+
+# button = 
+
+SOURCES = $(wildcard *.c)
+OBJECTS  = $(SOURCES :.c=.o)
+# SOURCES = shape.c circle.c cube.c sphere.c cylinder.c rectangle.c
+# OBJECTS = $(SOURCES:.c=.o)
+RED = \033[0;31m
+GREEN = \033[0;32m
+RESET = \033[0m
+DIR  = ../makedemo1 ../makedemo2 ../makedemo3
+
+
+all:
+	for dir in $(DIR) ; do make -C $$dir ; done
+
+shapes : shape.o cube.o sphere.o cylinder.o  circle.o rectangle.c
+	gcc $^ -o shapes
+
+%.o : %.c
+	gcc -c $< -o $@

@@ -1,0 +1,10 @@
+DIR  = makedemo5 makedemo1
+
+# use= \033[0;31m \033[0;32m \033[0;33m 
+
+all:
+	for dir in $(DIR) ; do make -C $$dir ; done
+
+clean : 
+	for dir in $(DIR) ; do make -C $$dir clean ; done
+

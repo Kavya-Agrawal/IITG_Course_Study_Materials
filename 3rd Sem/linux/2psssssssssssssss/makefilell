@@ -1,0 +1,8 @@
+myarm = opengl_example
+source = intertrbobarm.cpp
+
+$(myarm) : $(source)
+	gcc $(source) -o $(myarm) -I/usr/include/GL  -lGL -lGLU -lglut
+
+clean :
+	rm -f $(myarm)

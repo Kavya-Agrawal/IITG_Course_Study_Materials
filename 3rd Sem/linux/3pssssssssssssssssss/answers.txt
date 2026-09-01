@@ -1,0 +1,97 @@
+1,
+
+# Create the iitg.txt file and add initial content
+echo "Version 1 content" > iitg.txt
+
+# Create an SCCS file for iitg.txt
+sccs create iitg.txt
+
+# Make and commit changes to create new versions
+for i in {2..5}; do
+    sccs edit iitg.txt
+    echo "Version $i content" >> iitg.txt
+    sccs delta iitg.txt << EOF
+Comment for version $i
+EOF
+done
+
+sccs cdc -r1.3 iitg.txt
+
+sccs get -p -r1.4 iitg.txt | diff -u - iitg.txt
+
+sccs get -p iitg.txt
+
+sccs get -c'2024/08/28 14:30:00' iitg.txt
+
+sccs get -x1.2 -x1.4 iitg.txt
+
+2.
+
+Install Git:
+
+bash
+Copy code
+sudo apt-get update
+sudo apt-get install git
+Configure Git:
+
+bash
+Copy code
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+Initialize a Git repository:
+
+bash
+Copy code
+mkdir my_git_repo
+cd my_git_repo
+git init
+Create a file (hello.c) and add content:
+
+bash
+Copy code
+echo '#include <stdio.h>' > hello.c
+echo 'int main() {' >> hello.c
+echo '    printf("Hello, World!\\n");' >> hello.c
+echo '    return 0;' >> hello.c
+echo '}' >> hello.c
+Add the file to the staging area:
+
+bash
+Copy code
+git add hello.c
+Commit the changes:
+
+bash
+Copy code
+git commit -m "Initial commit: Add hello.c with Hello World program"
+
+
+3.
+
+Clone the Repository:
+
+bash
+Copy code
+git clone https://github.com/user/repository.git
+Navigate into the Repository Directory:
+
+bash
+Copy code
+cd repository
+Edit a File (hello.c):
+
+Open hello.c in a text editor and make some changes.
+Check the Repository Status:
+
+bash
+Copy code
+git status
+View the Differences from the Previous Status:
+
+bash
+Copy code
+git diff
+
+
+4. 
