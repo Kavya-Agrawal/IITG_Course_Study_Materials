@@ -1,26 +1,23 @@
-<<<<<<< HEAD
-# IITG — B.Tech Course Archive
+# IITG Course Study Materials
 
-Personal study materials from **IIT Guwahati** (CSE), organized semester-wise. Notes, slides, tutorials, lab work, assignments, and past papers.
+A semester-wise archive of B.Tech (Computer Science and Engineering) study materials from IIT Guwahati. The repository includes lecture notes, slides, tutorials, assignments, lab work, reference books, and past papers.
 
-## Structure
+## Repository structure
 
-```
+```text
 IITG/
 ├── 1st and 2nd sem/
 ├── 3rd Sem/
 ├── 4th Sem/
 ├── 5th sem/
-└── sixth sem/
+├── sixth sem/
+└── 7th semester/
 ```
-
-Each folder contains materials for that semester's courses.
-
----
 
 ## Courses
 
-### 1st & 2nd Semester
+### 1st and 2nd semesters
+
 - CS101 — Introduction to Computing
 - EE101 — Basic Electrical Engineering
 - MA101 — Mathematics I
@@ -33,44 +30,55 @@ Each folder contains materials for that semester's courses.
 - Physical Chemistry
 - Biology
 
-### 3rd Semester
+### 3rd semester
+
+- Data Structures and Algorithms (DSA)
+- DSA Lab
 - Digital Design
 - Discrete Mathematics
-- Data Structures & Algorithms (DSA)
-- DSA Lab
-- Linux / Systems Programming
-- Number Theory & Algebra
+- Linux and Systems Programming
+- Number Theory and Algebra
 - Probability
 
-### 4th Semester
-- Computer Organization & Architecture (COA)
-- Design & Analysis of Algorithms (DAA)
+### 4th semester
+
+- Computer Organization and Architecture (COA)
+- Design and Analysis of Algorithms (DAA)
 - Database Management Systems (DBMS)
 - DBMS Lab
-- Formal Languages & Automata Theory (FLAT)
+- Formal Languages and Automata Theory (FLAT)
 - Hardware Lab
 - Macroeconomics
 
-### 5th Semester
+### 5th semester
+
 - Game Theory
-- Information & Randomness
+- Information and Randomness
 - Computer Networks
 - Networks Lab
-- Optimization
-- Operating Systems (OS)
+- Operating Systems
 - OS Lab
-- xv6 (OS project)
+- OS research papers
+- Optimization
+- xv6
 
-### 6th Semester
+### 6th semester
+
 - Approximation Algorithms
 - Software Engineering
 
----
+### 7th semester
+
+- C-Based VLSI Design
+- Internet of Things (IoT)
+- Industrial Organization
+
+## Usage
+
+Browse the semester folders and then open the relevant course directory. Most resources are PDFs, with source code and lab files included where available.
 
 ## Notes
 
-- Large files (>100 MB) are excluded via `.gitignore`.
-- Folder names match the original local layout — browse by semester to find what you need.
-=======
-# IITG_Course_Study_Materials
->>>>>>> 143b4d938d9cc64bf1fc0a40febf6cffe5ebffd7
+- Folder names retain the original local layout so existing paths and references continue to work.
+- Files larger than GitHub's 100 MB per-file limit are excluded through `.gitignore`.
+- The materials are intended for study and revision; ownership remains with their respective authors and publishers.
